@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+for file in $(find $1 -name '*.jpg');do
+	convert $file -resize 128x128 "${file%.*}.png" 2>/dev/null #$file is het pad naar het bestand, na de resize de output dezelfde naam geven als dat ie was maar met andere extensie
+# laatste deel toegevoegd omdat ik rare output kreeg dat niet mooi eruit zag dus dat wordt naar /dev/null geschreven
+done 

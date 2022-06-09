@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+mkdir $1/afbeeldingen #maken nieuwe map afbeeldingen in map bestanden
+
+for file in $(find $1 -name '*.png' -o -name '*.jpeg'); do #vinden van bestanden met extensie .png of (-o) extensie .jpeg
+	mv $file $1/afbeeldingen #verplaatsen van bestand naar map afbeeldingen
+done
+

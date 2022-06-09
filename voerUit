@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+case $1 in
+	*.py) python3 $1 #als de extensie .py is dan wordt het argument uitgevoerd met python3
+;;
+	*.sh) bash $1 #als de extensie .sh is dan wordt het argument uitgevoerd met bash
+;;
+	*.cc) cat $1 #zelfde als hierboven maar dan uitvoeren met cat als extensie .cc is
+;;
+	*) echo "Extensie niet herkend, gebruik .py, .sh of .cc" #melding als extensie niet een van de bovenstaande is
+;;
+esac

@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+read -p "Voer uw gebruiksersnaam in:" naam #vragen om gebruiksersnaam
+
+if [ -z "$naam" ]; then #als er geen gebruikersnaam is ingevoerd dan wordt de huidige gebruikersnaam gebruikt
+	naam=$(whoami)
+fi
+
+read -s -p "Voer uw wachtwoord in: " wachtwoord #vragen om wachtwoord
+
+while [ ${#wachtwoord} -lt 8 ];do #zolang het wachtwoord kleiner is dan 8 tekens wordt gevraagd om het opnieuw in te voeren
+	echo "Het wachtwoord moet minimaal 8 tekens lang zijn"
+	read -s -p "Voer uw wachtwoord opnieuw in:" wachtwoord
+done
+echo -e "\n"
+read -s -p "Herhaal het wachtwoord: " wachtwoord2 #vragen om het wachtwoord te herhalen
+
+while [ "$wachtwoord" != "$wachtwoord2" ];do #zolang de twee wachtwoorden niet hetzelfde zijn opnieuw laten invoeren
+	echo "De wachtwoorden zijn niet hetzelfde"
+	read -s -p "Herhaal het wachtwoord: " wachtwoord2
+done
+echo -e "\nDe inloggegevens zijn opgeslagen" #melding geven aan gebruiker dat het gelukt is
+#schrijven van gegevens naar het opgegeven bestand
+echo "$naam" >> $1 
+echo "$pw2"|md5sum >> $1
+echo >> $1

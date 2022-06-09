@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+rm -f log #verwijderen van logbestand als die bestaat
+for file in $(ls $1);do
+	if $2 $1/$file > /dev/null 2> /dev/null #testen of command $2 uitgevoerd kan wordne met bestand $file op pad $1
+#eerste > is om de output van cat weg te schrijven, 2e > is om de foutmeldingen niet te laten zien in de terminal
+	then
+		echo "$2 $file gelukt" >> log #schrijven command en bestand dat het gelukt is naar log bestand
+	else
+		echo "$2 $file mislukt" >> log #schrijven dat command en bestand mislukt is naar log bestand
+	fi
+done

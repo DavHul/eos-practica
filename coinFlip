@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+read -p "kop of munt? " kant
+
+while (( "$kant" != "kop" || "$kant" != "munt" )); do
+	echo $kant
+	read -p "Kant niet herkent, kop of munt? " kant
+done
+case $kant in
+	"kop") echo "Het is munt, helaas!";;
+	"munt") echo "Het is kop, helaas!";;
+esac
