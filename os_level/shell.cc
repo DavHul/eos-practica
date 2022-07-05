@@ -109,7 +109,7 @@ void find(){
 void seek(){ 
   int pid = syscall(SYS_fork);
   if (pid == 0){
-    std::string zoeken = "Seek";
+    std::string zoeken = "seek";
     const char* char_zoeken = zoeken.c_str();
 
     int bestand_zoeken = syscall(SYS_creat, char_zoeken, 0755);
